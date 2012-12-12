@@ -1,3 +1,6 @@
+# 0.1.18
+  * Feature: Use YAML instead of JSON for caching data.
+
 # 0.1.17
   * Bug: present? is not available in vanilla ruby.
 
