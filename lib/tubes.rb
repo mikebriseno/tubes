@@ -1,4 +1,4 @@
-require 'json'
+require 'yaml'
 require 'monitor'
 
 class Tube
@@ -81,7 +81,7 @@ class Tube
     output_file = segment_cache segment
     if output_file && File.exists?(output_file)
       self.puts "Skipping: #{@order}-#{@invocations}-#{segment.name}"
-      output = JSON.load(File.read(output_file))["data"]
+      output = YAML.load(File.read(output_file))["data"]
 
       if serial?
         @output = output
@@ -215,7 +215,7 @@ class Tube
 
     if output_file
       File.open(output_file, "w") do |f|
-        f.write({:data => output}.to_json)
+        f.write({:data => output}.to_yaml)
       end
     end
 
@@ -230,7 +230,7 @@ class Tube
 
 
   def segment_cache(segment)
-    File.join(@dir, "#{description(segment.class)}.json") if segment.dir
+    File.join(@dir, "#{description(segment.class)}.yaml") if segment.dir
   end
 
 
