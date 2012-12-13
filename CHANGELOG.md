@@ -1,3 +1,6 @@
+# 0.1.19
+  * Bug: run always returns nil, regardless of what the output was.
+
 # 0.1.18
   * Feature: Use YAML instead of JSON for caching data.
 
